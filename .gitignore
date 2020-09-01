@@ -139,3 +139,6 @@ dmypy.json
 *.csv
 !Data/GoodReads/books.csv
 !Data/GoodReads/book_reviews.csv
+!Data/p1.csv
+!Data/p2.csv
+!Data/p3.csv
