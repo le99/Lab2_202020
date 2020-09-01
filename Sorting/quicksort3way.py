@@ -29,7 +29,7 @@ from random import randrange
 
 
 
-def sort (lst, lo, hi, compareFunc):
+def sort (lst, lo, hi, lessFunc):
     if (hi <= lo ):
         return
     
@@ -39,20 +39,20 @@ def sort (lst, lo, hi, compareFunc):
     v = adtlt.getElement(lst, lo + 1)
     
     while i <= gt:
-        cmp = compareFunc(adtlt.getElement(lst, i+1), v)
-        if cmp < 0:
+        v_i = adtlt.getElement(lst, i+1)
+        if lessFunc(v_i, v):
             adtlt.exchange(lst, lt + 1, i + 1)
             lt = lt + 1
             i = i + 1
-        elif cmp > 0:
+        elif lessFunc(v, v_i):
             adtlt.exchange(lst, i + 1, gt + 1)
-            i = i + 1
-            gt = gt -1
+            i = i
+            gt = gt - 1
         else:
-            pass
+            i = i + 1
     
-    sort(lst, lo, lt-1, compareFunc)
-    sort(lst, gt+1, hi, compareFunc)
+    sort(lst, lo, lt-1, lessFunc)
+    sort(lst, gt+1, hi, lessFunc)
   
 
 def permutate(lst):
@@ -60,7 +60,7 @@ def permutate(lst):
         r = randrange(n, adtlt.size(lst))
         adtlt.exchange(lst, n + 1, r + 1)
 
-def quickSort3Way(lst, compareFunc):
+def quickSort3Way(lst, lessFunc):
     permutate(lst)
-    sort (lst, 1 - 1 , adtlt.size(lst) - 1, compareFunc)
+    sort (lst, 1 - 1 , adtlt.size(lst) - 1, lessFunc)
 

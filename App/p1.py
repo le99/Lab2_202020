@@ -7,7 +7,8 @@ from time import process_time
 from Sorting import insertionsort 
 from Sorting import selectionsort 
 from Sorting import quicksort 
-from Sorting import mergesort 
+from Sorting import mergesort
+from Sorting import quicksort3way
 import sys
 
 print(sys.getrecursionlimit())
@@ -28,12 +29,20 @@ t1_start = process_time()
 # Ordenar numeros descendetemente
 #======================================
 
+# def less(e1, e2):
+#     if e1["apellido"] < e1["apellido"]:
+#         return True
+#     elif e1["apellido"] == e1["apellido"] and e1["nombre"] < e1["nombre"]:
+#         return True
+#     else:
+#         return False
+
 # insertionsort.insertionSort(lista, less)
 # selectionsort.selectionSort(lista, less)
 # quicksort.quickSort(lista, less)
 # mergesort.mergesort(lista, less)
-# quicksort3way.quickSort3Way(lista, comp)
-
+# quicksort3way.quickSort3Way(lista, less)
+    
 #=======================================
 # Grupo 1
 #=======================================

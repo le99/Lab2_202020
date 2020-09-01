@@ -8,6 +8,7 @@ from Sorting import insertionsort
 from Sorting import selectionsort 
 from Sorting import quicksort 
 from Sorting import mergesort 
+from Sorting import quicksort3way
 import sys
 
 print(sys.getrecursionlimit())
@@ -32,7 +33,7 @@ t1_start = process_time()
 # selectionsort.selectionSort(lista, less)
 # quicksort.quickSort(lista, less)
 # mergesort.mergesort(lista, less)
-# quicksort3way.quickSort3Way(lista, comp)
+# quicksort3way.quickSort3Way(lista, less)
 
 #=======================================
 # Grupo 1
