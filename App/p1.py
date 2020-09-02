@@ -11,77 +11,73 @@ from Sorting import mergesort
 from Sorting import quicksort3way
 import sys
 
-print(sys.getrecursionlimit())
+# print(sys.getrecursionlimit())
 sys.setrecursionlimit(10000)
 
 lista = lt.newList('ARRAY_LIST', None)
 
+def printList(lista):
+    iter = listiterator.newIterator(lista)
+    while listiterator.hasNext(iter):
+        c = listiterator.next(iter)
+        print(c)
+
 with open("Data/p1.csv", encoding="utf-8-sig") as csvfile:
     reader = csv.DictReader(csvfile, delimiter=';')
     for row in reader:
-        lt.addFirst(lista, row["num"])
+        lt.addLast(lista, row["num"])
 
 
-
-t1_start = process_time()
 
 #======================================
 # Ordenar numeros descendetemente
 #======================================
 
-# def less(e1, e2):
-#     if e1["apellido"] < e1["apellido"]:
-#         return True
-#     elif e1["apellido"] == e1["apellido"] and e1["nombre"] < e1["nombre"]:
-#         return True
-#     else:
-#         return False
-
-# insertionsort.insertionSort(lista, less)
-# selectionsort.selectionSort(lista, less)
-# quicksort.quickSort(lista, less)
-# mergesort.mergesort(lista, less)
-# quicksort3way.quickSort3Way(lista, less)
+def less(e1, e2):
+    return e1 < e2
     
 #=======================================
-# Grupo 1
-#=======================================
 
-
-
-#=======================================
-# Grupo 2
-#=======================================
-
-
-#=======================================
-# Grupo 3
-#=======================================
-
-
-#=======================================
-# Grupo 4
-#=======================================
-
-
-#=======================================
-# Grupo 5
-#=======================================
-
-
-#=======================================
-# Grupo 6
-#=======================================
-
-
-
-#=========================================
-
+l = lt.subList(lista, 1, lt.size(lista))
+t1_start = process_time()
+insertionsort.insertionSort(l, less)
 t1_stop = process_time()
-# Imprimir resultado
-iter = listiterator.newIterator(lista)
-while listiterator.hasNext(iter):
-    c = listiterator.next(iter)
-    print(c)
+# printList(l)
+print("InsertionSort:\t",t1_stop-t1_start," segundos")
 
-print("Tiempo de ejecución ",t1_stop-t1_start," segundos")
+#=======================================
+
+l = lt.subList(lista, 1, lt.size(lista))
+t1_start = process_time()
+selectionsort.selectionSort(l, less)
+t1_stop = process_time()
+# printList(l)
+print("SelectionSort:\t",t1_stop-t1_start," segundos")
+
+#=======================================
+
+l = lt.subList(lista, 1, lt.size(lista))
+t1_start = process_time()
+mergesort.mergesort(l, less)
+t1_stop = process_time()
+# printList(l)
+print("MergeSort:\t",t1_stop-t1_start," segundos")
+
+#=======================================
+
+l = lt.subList(lista, 1, lt.size(lista))
+t1_start = process_time()
+quicksort.quickSort(l, less)
+t1_stop = process_time()
+# printList(l)
+print("QuickSort:\t",t1_stop-t1_start," segundos")
+
+#=======================================
+
+l = lt.subList(lista, 1, lt.size(lista))
+t1_start = process_time()
+quicksort3way.quickSort3Way(l, less)
+t1_stop = process_time()
+# printList(l)
+print("Quick3-way:\t",t1_stop-t1_start," segundos")
+
